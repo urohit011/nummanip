@@ -5,15 +5,15 @@ import (
 )
 
 // Add is sued to add two numbers
-func Add(numbers ...int) int {
+func Add(numbers ...int) (int, error) {
 	sum := 0
 
 	if len(numbers) < 2 {
-		return errors.New("Provide more than 2 arguments"), sum
+		return sum, errors.New("Provide more than 2 arguments")
 	}
 
 	for _, num := range numbers {
 		sum += num
 	}
-	return sum
+	return sum, nil
 }
